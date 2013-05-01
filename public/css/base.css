@@ -101,7 +101,7 @@ header {
       }
 
       /* error, line */
-      #wrapper ul.lines li.redline span.status {
+      body.error #wrapper ul.lines li.redline span.status {
         background-image: url(/img/alert.svg); 
       }
 
@@ -144,7 +144,8 @@ header {
 
     body.error #content {
       background-image: url(/img/scanlines.png);
-      -webkit-animation: slide 1s linear infinite;
+      /* XXX TODO: this makes my Macbook Air explode */
+      /* -webkit-animation: slide 1s linear infinite; */
     }
 
     #content section.message {
@@ -154,7 +155,7 @@ header {
       margin-left: 17%;
     }
 
-    /* redline */
+    /* ERROR, color */
     body.error #content section.message {
       padding: 2vmin 4vmin;
       background: #c71f18;
@@ -166,12 +167,12 @@ header {
 
     #content section.message p.error {
       display: none;
+      font-weight: bold;
     }
 
     /* ERROR */
     body.error #content section.message p.error {
       display: block;
-      font-weight: bold;
     }
 
     body.error #content section.message p.normal {
@@ -198,12 +199,12 @@ footer {
 
       footer section.elevator .icon {
         background-image: url(/img/handicapped.svg);
-        background-size: auto 80%;
+        background-size: auto 70%;
       }
 
       footer section.shuttle .icon {
         background-image: url(/img/shuttle.svg);
-        background-size: auto 80%;
+        background-size: auto 70%;
       }
 
     footer section h3, 
@@ -215,6 +216,7 @@ footer {
 
     footer section h3 {
       padding-top: 2%;
+      font-family: "HelveticaNeue-Medium";
       font-size: 5.5vh;
       font-weight: normal;
       text-transform: uppercase;
