@@ -100,8 +100,8 @@ header {
         background-image: url(/img/checkmark-dark.svg);
       }
 
-      /* error orangeline */
-      #wrapper ul.lines li.orangeline span.status {
+      /* error, line */
+      #wrapper ul.lines li.redline span.status {
         background-image: url(/img/alert.svg); 
       }
 
@@ -114,7 +114,8 @@ header {
         font-weight: bold;
       }
 
-      body.error #wrapper ul.lines li.orangeline {
+      /* error, line */
+      body.error #wrapper ul.lines li.redline {
         background: none;
       }
 
@@ -127,9 +128,9 @@ header {
     background: #000;
   }
 
-    /* redline */
+    /* error, line */
     body.error #content {
-      background-color: #f37800;
+      background-color: #c71f18;
     }
 
     @-webkit-keyframes slide {
@@ -156,16 +157,25 @@ header {
     /* redline */
     body.error #content section.message {
       padding: 2vmin 4vmin;
-      background: #f37800;
+      background: #c71f18;
     }
 
     #content section.message p {
-      font-size: 9vh;
+      font-size: 8vmin;
+    }
+
+    #content section.message p.error {
+      display: none;
     }
 
     /* ERROR */
-    body.error #content section.message p {
+    body.error #content section.message p.error {
+      display: block;
       font-weight: bold;
+    }
+
+    body.error #content section.message p.normal {
+      display: none;
     }
 
 footer {
