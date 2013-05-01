@@ -1,0 +1,204 @@
+* { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "HelveticaNeue", "Helvetica", "Arial", Sans-serif;
+  font-size: 100%;
+  color: #FFF;
+  background: #000;
+}
+
+header, footer {
+  background: #222222;
+  overflow: hidden;
+  text-shadow: 0 4px 0 #000;
+}
+
+header {
+  height: 14%;
+  padding-left: 19%;
+  padding-right: 1%;
+  position: relative;
+}
+
+  header object.metro-logo {
+    position: absolute;
+    left: 1%;
+    top: 10%;
+    opacity: 0.1;
+    height: 81%;
+  }
+
+  header span.date {
+    font-size: 10vh;
+    font-family: "HelveticaNeue-Medium";
+  }
+
+  header span.time {
+    font-size: 12vh;
+    font-weight: bold;
+    float: right;
+  }
+
+#wrapper {
+  background: black;
+  height: 68%;
+  position: relative;
+  box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
+}
+
+  #wrapper ul.lines {
+    width: 16%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+  }
+
+    #wrapper ul.lines li {
+      height: 20%;
+      text-align: center;
+      list-style: none;
+      box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
+    }
+
+    #wrapper ul.lines li.redline {
+      background: #c71f18;
+      box-shadow: none;
+    }
+
+    #wrapper ul.lines li.orangeline {
+      background: #f37800;
+    }
+
+    #wrapper ul.lines li.blueline {
+      background: #1e6da9;
+    }
+
+    #wrapper ul.lines li.greenline {
+      background: #2eb333;
+    }
+
+    #wrapper ul.lines li.yellowline {
+      background: #ffc500;
+      color: #222222;
+    }
+
+      #wrapper ul.lines li span.status {
+        height: 100%;
+        width: 44%;
+        display: block;
+        float: left;
+        text-indent: -999em;
+        background: rgba(255,255,255,0.2) url(/img/checkmark.svg) 50% 50% no-repeat;
+        background-size: 60% auto;
+      }
+
+      #wrapper ul.lines li.yellowline span.status {
+        background-image: url(/img/checkmark-dark.svg);
+      }
+
+      #wrapper ul.lines li abbr.line {
+        float: right;
+        display: block;
+        height: 100%;
+        width: 56%;
+        font-size: 8vh;
+        font-weight: bold;
+      }
+
+      body.error #wrapper ul.lines li.redline {
+        background: none;
+      }
+
+  #content {
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    padding: 2%;
+    background: #000;
+  }
+
+    /* redline */
+    body.error #content {
+      background-color: #c71f18;
+    }
+
+    body.error #content {
+      background-image: url(/img/scanlines.png);
+    }
+
+    #content section.message {
+      box-sizing: border-box;
+      height: 100%;
+      display: block;
+      margin-left: 17%;
+    }
+
+    /* redline */
+    body.error #content section.message {
+      padding: 2vmin 4vmin;
+      background: #c71f18;
+    }
+
+    #content section.message p {
+      font-size: 9vh;
+    }
+
+    /* ERROR */
+    body.error #content section.message p {
+      font-weight: bold;
+    }
+
+footer {
+  height: 18%;
+  box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
+}
+
+  footer section {
+    width: 50%;
+    height: 100%;
+    float: left;
+  }
+
+    footer section .icon {
+      height: 100%;
+      float: left;
+      width: 20%;
+      background: 80% 50% no-repeat;
+    }
+
+      footer section.elevator .icon {
+        background-image: url(/img/handicapped.svg);
+        background-size: auto 80%;
+      }
+
+      footer section.shuttle .icon {
+        background-image: url(/img/shuttle.svg);
+        background-size: auto 80%;
+      }
+
+    footer section h3, 
+    footer section p {
+      display: block;
+      margin-left: 20%;
+      padding-left: 3%;
+    }
+
+    footer section h3 {
+      padding-top: 2%;
+      font-size: 5.5vh;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #CCC;
+      line-height: 1em;
+    }
+
+    footer section p {
+      font-size: 8vh;
+      font-weight: bold;
+      line-height: 1em;
+    }
