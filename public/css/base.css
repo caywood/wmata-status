@@ -1,5 +1,20 @@
 * { margin: 0; padding: 0; }
 
+@-webkit-keyframes slide {
+  from {
+      background-position: 0 0;
+  }
+  to {
+      background-position: 0 32px;
+  }
+}
+
+@-webkit-keyframes pulsate {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 html, body {
   height: 100%;
 }
@@ -9,6 +24,11 @@ body {
   font-size: 100%;
   color: #FFF;
   background: #000;
+}
+
+header span.date,
+footer section h3 {
+  font-family: "HelveticaNeue-Medium", "HelveticaNeue", "Helvetica", "Arial", Sans-serif;
 }
 
 header, footer {
@@ -34,7 +54,6 @@ header {
 
   header span.date {
     font-size: 10vh;
-    font-family: "HelveticaNeue-Medium";
   }
 
   header span.time {
@@ -102,7 +121,8 @@ header {
 
       /* error, line */
       body.error #wrapper ul.lines li.redline span.status {
-        background-image: url(/img/alert.svg); 
+        background-image: url(/img/alert.svg);
+         -webkit-animation: pulsate 1.50s ease-in-out infinite; 
       }
 
       #wrapper ul.lines li abbr.line {
@@ -112,6 +132,7 @@ header {
         width: 56%;
         font-size: 8vh;
         font-weight: bold;
+        border: none;
       }
 
       /* error, line */
@@ -131,15 +152,6 @@ header {
     /* error, line */
     body.error #content {
       background-color: #c71f18;
-    }
-
-    @-webkit-keyframes slide {
-      from {
-          background-position: 0 0;
-      }
-      to {
-          background-position: 0 32px;
-      }
     }
 
     body.error #content {
@@ -216,7 +228,6 @@ footer {
 
     footer section h3 {
       padding-top: 2%;
-      font-family: "HelveticaNeue-Medium";
       font-size: 5.5vh;
       font-weight: normal;
       text-transform: uppercase;
