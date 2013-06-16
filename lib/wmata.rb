@@ -3,10 +3,10 @@ $LOAD_PATH << File.dirname(__FILE__)
 require 'rest_client'
 require 'multi_json'
 
-# require "wmata/client"
+require "wmata/line"
+require "wmata/station"
 
 module WMATA
-  
   ENDPOINT = "http://api.wmata.com/"
 
   def self.get(resource, params={})
@@ -20,23 +20,22 @@ module WMATA
   end
   
   def self.lines
-    # get all lines
-    # jLines
     response = get('Rail.svc/json/jLines')
     if response.has_key?("Lines")
-      return response["Lines"]
+      return response["Lines"].map { |line| Line.new(line) }
     end
   end
 
   def self.stations(line=nil)
     response = get('Rail.svc/json/jStations', 'LineCode' => line)
     if response.has_key?("Stations")
-      return response["Stations"]
+      return response["Stations"].map { |station| Station.new(station) }
     end
   end
 
   def self.station(code)
-    get('Rail.svc/json/jStationInfo', 'StationCode' => code)
+    response = get('Rail.svc/json/jStationInfo', 'StationCode' => code)
+    return Station.new(response)
   end
 
   def self.incidents

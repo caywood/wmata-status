@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    
+    %title WMATA Debug – Station #{@station.name}
+  
+  %body
+    %h1 
+      #{@station.name}
+      %small
+        #{@station.code}
+    
+    %dl
+      %dt Serving lines 
+      %dd #{@station.lines}
+
+      %dt Together with
+      %dd #{@station.together}

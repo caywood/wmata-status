@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    
+    %title WMATA Debug
+  
+  %body
+    %h3 Lines
+    %ul
+      - @lines.each do |line|
+        %li #{line.name}, #{line.code}
+
+    %h3 Stations
+    %ul
+      - @stations.each do |station|
+        %li
+          %a{ :href => url("/station/#{station.code}") }
+            <strong>#{station.name}</strong> – #{station.code}
+          %br/
+          Lines served: #{station.lines}<br/>
+          Together with: #{station.together}
