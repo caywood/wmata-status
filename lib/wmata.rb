@@ -64,6 +64,18 @@ module WMATA
     return Station.new(response)
   end
 
+  def self.stations_for_line(line_code)
+    stations_by_line = Hash[LINES.map { |slug, code| [ code, [] ] }]
+    
+    self.stations.each do |station|
+      station.lines.each do |line|
+        stations_by_line[line.code] << station
+      end
+    end
+
+    stations_by_line[line_code]
+  end
+
   def self.incidents
     response = get('Incidents.svc/json/Incidents')
     if response.has_key?("Incidents")

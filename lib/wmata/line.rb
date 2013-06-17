@@ -24,5 +24,9 @@ module WMATA
       incidents.any?
     end
 
+    def stations
+      @stations ||= WMATA.stations_for_line(@code)
+    end
+
   end
 end

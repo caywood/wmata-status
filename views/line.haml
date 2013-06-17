@@ -20,4 +20,5 @@
       %p No incidents to report on the #{@line}.    
 
     %h3 Stations
-    %p There are %s stations on the #{@line}:
+    %p There are #{pluralize(@line.stations.count, 'station')} on the #{@line}:
+    
