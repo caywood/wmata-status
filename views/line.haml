@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    
+    %title #{@line} – WMATA Debug
+  
+  %body
+    %a{ :href => url('/debug') }
+      &larr; Back
+    
+    %h1= @line
+
+    %h3 Incidents
+    - if @line.incidents?
+      %ul
+        - @line.incidents.each do |incident|
+          %li #{incident}
+    - else
+      %p No incidents to report on the #{@line}.    
+
+    %h3 Stations
+    %p There are %s stations on the #{@line}:

@@ -43,5 +43,13 @@ module WMATA
       point.last
     end
 
+    def lines
+      @lines.map { |code| WMATA.line(code) }
+    end
+
+    def together?
+      @together.any?
+    end
+
   end
 end

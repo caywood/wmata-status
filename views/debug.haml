@@ -8,8 +8,19 @@
   %body
     %h3 Lines
     %ul
-      - @lines.each do |line|
-        %li #{line.name}, #{line.code}
+      - @lines.each do |code, line|
+        %li 
+          #{code} — 
+          %a{ :href => url("/line/#{line.slug}") }
+            #{line}
+            
+    %h3 Incidents
+    %ul
+      - @incidents.each do |incident|
+        %li 
+          <strong>#{incident.description}</strong>
+          %br/
+          Updated #{incident.updated}
 
     %h3 Stations
     %ul

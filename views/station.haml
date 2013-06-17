@@ -3,17 +3,26 @@
   %head
     %meta{ charset: "utf-8" }
     
-    %title WMATA Debug – Station #{@station.name}
+    %title #{@station} – WMATA Debug
   
   %body
+    %a{ :href => url('/debug') }
+      &larr; Back
+
     %h1 
       #{@station.name}
       %small
         #{@station.code}
     
-    %dl
-      %dt Serving lines 
-      %dd #{@station.lines}
+    %h3 Serving #{pluralize(@station.lines.count, "Line")}:
+    %ul 
+      - @station.lines.each do |line|
+        %li
+          %a{ :href => url("/line/#{line.slug}") }
+            = line
 
-      %dt Together with
-      %dd #{@station.together}
+    %h3 Together With
+    - if @station.together?
+      #{@station.together}
+    - else
+      %p #{@station} is not a multi-level station.
