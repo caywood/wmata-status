@@ -14,5 +14,4 @@ gem 'rest-client'
 
 gem 'httparty'
 
-# gem 'wmata', :git => 'https://github.com/intridea/wmata.git'
-gem 'wmata', :path => '/Users/michael/source/wmata'
+gem 'wmata', :git => 'https://github.com/whalesalad/wmata'
