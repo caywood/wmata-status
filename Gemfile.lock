@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/michael/source/wmata
+GIT
+  remote: https://github.com/whalesalad/wmata
+  revision: 51a7498f7f641c64b774c148c8327dd64266bc2d
   specs:
     wmata (0.2.1)
 
