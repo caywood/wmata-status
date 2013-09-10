@@ -78,7 +78,7 @@ header {
 
     #wrapper ul.lines li {
       height: 20%;
-      text-align: center;
+      /*text-align: center;*/
       list-style: none;
       box-shadow: inset 0 6px 0 rgba(0,0,0,0.2);
     }
@@ -111,7 +111,7 @@ header {
         display: block;
         float: left;
         text-indent: -999em;
-        background: rgba(255,255,255,0.2) url(/img/checkmark.svg) 50% 50% no-repeat;
+        background: url(/img/checkmark.svg) 50% 50% no-repeat;
         background-size: 60% auto;
       }
 
@@ -122,7 +122,7 @@ header {
       /* error, line */
       body.error #wrapper ul.lines li.redline span.status {
         background-image: url(/img/alert.svg);
-         -webkit-animation: pulsate 1.50s ease-in-out infinite; 
+         -webkit-animation: pulsate 2s ease-in-out infinite;
       }
 
       #wrapper ul.lines li abbr.line {

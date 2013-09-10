@@ -11,7 +11,7 @@
 
     %title WMATA Info Board
   
-  %body
+  %body.error
     %header.valign
       %object{ class: "metro-logo", data: "img/metro.svg", type: "image/svg+xml" }
       %span.date Hello!
@@ -19,20 +19,20 @@
 
     #wrapper
       %ul.lines
-        - @lines.each do |name, abbr|
-          %li{ :class => "valign #{name.downcase}line" }
-            %abbr.line{ :title => "#{name} Line" }
-              #{abbr}
+        - @lines.each do |line|
+          %li{ :class => "valign #{line.display_name.downcase}line" }
+            %abbr.line{ :title => "#{line} Line" }
+              #{line}
             %span.status
               On Time
             
       #content
         %section.message
-          / %p.error
-          /   Red Line: Trains are single tracking btwn Van Ness & Dupont Circle due to scheduled track work. Expect delays through tonight's closing.
+          %p.error
+            Red Line: Trains are single tracking btwn Van Ness & Dupont Circle due to scheduled track work. Expect delays through tonight's closing.
 
-          %p.normal 
-            Metrorail holiday hours: Christmas Eve 5am - Midnight, Christmas Day 7am - Midnight (Sunday schedule), New Year’s Eve 5am - 2am
+          / %p.normal 
+          / Metrorail holiday hours: Christmas Eve 5am - Midnight, Christmas Day 7am - Midnight (Sunday schedule), New Year’s Eve 5am - 2am
 
     %footer
       %section.elevator

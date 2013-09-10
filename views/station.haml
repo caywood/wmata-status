@@ -18,11 +18,15 @@
     %ul 
       - @station.lines.each do |line|
         %li
-          %a{ :href => url("/line/#{line.slug}") }
-            = line
+          %strong
+            #{line}
+          —
+          %a{ :href => url("/line/#{line.display_name.downcase}") }
+            #{line.display_name}
 
-    %h3 Together With
-    - if @station.together?
-      #{@station.together}
-    - else
-      %p #{@station} is not a multi-level station.
+    - if @station.elevator_incidents
+      - if @station.elevator_incidents.unit_type == "ELEVATOR"
+        %h3 Elevator Outage
+        %p= @station.elevator_incidents.location_description
+      
+    

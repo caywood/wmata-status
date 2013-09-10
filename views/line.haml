@@ -9,16 +9,25 @@
     %a{ :href => url('/debug') }
       &larr; Back
     
-    %h1= @line
+    %h1
+      #{@line.display_name} Line
 
     %h3 Incidents
-    - if @line.incidents?
+    - if @line.incidents.any?
       %ul
         - @line.incidents.each do |incident|
-          %li #{incident}
+          %li #{incident.description}
+          %pre
+            = incident.to_yaml
     - else
-      %p No incidents to report on the #{@line}.    
+      %p No incidents to report on the #{@line.display_name} Line.
 
     %h3 Stations
-    %p There are #{pluralize(@line.stations.count, 'station')} on the #{@line}:
+    %p There are #{pluralize(@line.stations.count, 'station')} on the #{@line.display_name} Line:
+
+    %ul
+      - @line.stations.each do |station|
+        %li 
+          %a{ :href => url("/station/#{station.code}") }
+            <strong>#{station.code}</strong> – #{station.name}
     

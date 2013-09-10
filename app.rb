@@ -1,6 +1,9 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
-require './lib/wmata'
+require 'wmata'
+# require './lib/wmata'
+
+WMATA.api_key = ENV['WMATA_API_KEY']
 
 set :haml, { format: :html5, attr_wrapper: '"' }
 
@@ -17,7 +20,7 @@ helpers do
 end
 
 get '/' do
-  @lines = WMATA::LINES
+  @lines = WMATA.lines
   haml :index
 end
 
@@ -34,13 +37,6 @@ get '/station/:code' do
 end
 
 get '/line/:code' do
-  code = WMATA.get_line_code(params[:code])
-  
-  if code.nil?
-    puts "Invalid line specified."
-    halt 404
-  end
-
-  @line = WMATA.line(code)
+  @line = WMATA::Line.get(params[:code].to_sym)
   haml :line
 end
